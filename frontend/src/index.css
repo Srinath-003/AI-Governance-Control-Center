@@ -3,13 +3,16 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    font-size: 16px;
+  }
   body {
-    @apply bg-[#030304] text-white antialiased selection:bg-purple-600 selection:text-white;
+    @apply bg-[#030304] text-white antialiased selection:bg-purple-600 selection:text-white text-base;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
 
-/* Perspective Grid Background Texture (AIVAR Aesthetic) */
+/* Perspective Grid Background Texture */
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
@@ -20,8 +23,8 @@
 .bg-purple-grid {
   background-size: 48px 48px;
   background-image: 
-    linear-gradient(to right, rgba(124, 58, 237, 0.07) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(124, 58, 237, 0.07) 1px, transparent 1px);
+    linear-gradient(to right, rgba(124, 58, 237, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(124, 58, 237, 0.08) 1px, transparent 1px);
 }
 
 /* High Contrast AIVAR Panels & Cards */
@@ -29,18 +32,18 @@
   background: rgba(12, 12, 14, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-card {
-  background: rgba(18, 18, 21, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(18, 18, 21, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  border-color: rgba(124, 58, 237, 0.4);
-  box-shadow: 0 4px 24px -4px rgba(124, 58, 237, 0.2);
+  border-color: rgba(124, 58, 237, 0.5);
+  box-shadow: 0 4px 24px -4px rgba(124, 58, 237, 0.25);
 }
 
 /* AIVAR Notched Button Framing */
@@ -52,13 +55,14 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-size: 0.85rem;
   transition: all 0.15s ease;
   border: 1px solid #FFFFFF;
 }
 
 .btn-notch-white:hover {
   background: #E4E4E7;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
 }
 
 .btn-notch-purple {
@@ -69,13 +73,14 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-size: 0.85rem;
   transition: all 0.15s ease;
   border: 1px solid #8B5CF6;
 }
 
 .btn-notch-purple:hover {
   background: #6D28D9;
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+  box-shadow: 0 0 22px rgba(124, 58, 237, 0.55);
 }
 
 .btn-notch-outline {
@@ -86,13 +91,14 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-size: 0.85rem;
   transition: all 0.15s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .btn-notch-outline:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 /* Section Tag Styling: < TAG > */
@@ -100,25 +106,25 @@
   font-family: 'Space Mono', monospace;
   color: #A855F7;
   font-weight: 700;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 /* Status Glow Animations */
 @keyframes pulse-green {
-  0%, 100% { box-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
-  50% { box-shadow: 0 0 16px rgba(16, 185, 129, 0.8); }
+  0%, 100% { box-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.8); }
 }
 
 @keyframes pulse-red {
-  0%, 100% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
-  50% { box-shadow: 0 0 22px rgba(239, 68, 68, 0.9); }
+  0%, 100% { box-shadow: 0 0 12px rgba(239, 68, 68, 0.5); }
+  50% { box-shadow: 0 0 24px rgba(239, 68, 68, 0.9); }
 }
 
 @keyframes pulse-amber {
-  0%, 100% { box-shadow: 0 0 8px rgba(245, 158, 11, 0.4); }
-  50% { box-shadow: 0 0 16px rgba(245, 158, 11, 0.7); }
+  0%, 100% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.7); }
 }
 
 .glow-green { animation: pulse-green 2.5s infinite; }
@@ -127,16 +133,16 @@
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #050505;
 }
 ::-webkit-scrollbar-thumb {
-  background: #222226;
-  border-radius: 2px;
+  background: #2D2D35;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #33333B;
+  background: #444450;
 }
