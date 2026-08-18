@@ -8,22 +8,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        governance: {
-          dark: '#0B0F17',
-          panel: '#131A29',
-          border: '#1E293B',
-          muted: '#64748B',
-          accent: '#6366F1',
-          accentHover: '#4F46E5',
+        aivar: {
+          black: '#000000',
+          bg: '#050505',
+          panel: '#0C0C0E',
+          card: '#121215',
+          border: '#222226',
+          borderLight: '#33333B',
+          textMuted: '#9999A1',
+          accent: '#7C3AED',       // Electric Purple / Violet
+          accentHover: '#6D28D9',
+          accentLight: '#A855F7',
           green: '#10B981',
           amber: '#F59E0B',
-          red: '#EF4444',
-          cyan: '#06B6D4'
+          red: '#EF4444'
         }
       },
       fontFamily: {
-        sans: ['Inter', 'Outfit', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace']
+        sans: ['Inter', 'Outfit', 'system-ui', 'sans-serif'],
+        mono: ['Space Mono', 'JetBrains Mono', 'monospace']
       }
     },
   },
