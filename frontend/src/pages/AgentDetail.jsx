@@ -131,12 +131,12 @@ export default function AgentDetail() {
           </div>
           <div className="space-y-1">
             <div className="flex items-center gap-3">
-              <span className="font-mono text-xs font-bold text-indigo-400 bg-indigo-950/80 px-2.5 py-0.5 rounded border border-indigo-500/30">
+              <span className="font-mono text-sm sm:text-base font-black text-purple-300 bg-purple-950 px-3 py-1 rounded border border-purple-500/40">
                 {agent.agentId}
               </span>
-              <span className="text-xs font-mono text-slate-500">v{agent.version}</span>
+              <span className="text-xs font-mono text-neutral-400">v{agent.version}</span>
             </div>
-            <h1 className="text-2xl font-black text-white">{agent.name}</h1>
+            <h1 className="text-3xl sm:text-4xl font-black text-white pt-1">{agent.name}</h1>
             <p className="text-xs text-slate-400 max-w-xl">{agent.description}</p>
           </div>
         </div>

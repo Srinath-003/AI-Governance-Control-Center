@@ -43,7 +43,7 @@ export default function Agents() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="tag-purple">&lt; GOVERNED MODELS &gt;</div>
+          <div className="tag-purple">GOVERNED MODELS</div>
           <h1 className="text-2xl font-black text-white tracking-tight flex items-center gap-2 mt-1">
             <Bot className="w-7 h-7 text-purple-400" />
             Governed AI Agents Roster
@@ -59,7 +59,7 @@ export default function Agents() {
         </div>
       </div>
 
-      {/* Controls: Search and Filter Tabs (AIVAR Style) */}
+      {/* Controls: Search and Filter Tabs */}
       <div className="glass-panel p-4 bg-[#0C0C0E] border border-[#222226] flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="relative w-full md:w-80">
           <Search className="w-4 h-4 text-neutral-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -112,10 +112,10 @@ export default function Agents() {
                 {/* Header Row */}
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <span className="text-[10px] font-mono font-bold text-purple-400 bg-purple-950/60 px-2 py-0.5 border border-purple-500/30">
+                    <span className="text-xs sm:text-sm font-mono font-black text-purple-300 bg-purple-950/90 px-3 py-1 border border-purple-500/50 shadow-sm inline-block">
                       {agent.agentId}
                     </span>
-                    <h3 className="text-lg font-bold text-white group-hover:text-purple-300 transition mt-2">
+                    <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-purple-300 transition mt-2.5">
                       {agent.name}
                     </h3>
                   </div>

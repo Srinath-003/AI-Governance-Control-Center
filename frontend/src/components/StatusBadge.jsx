@@ -13,7 +13,7 @@ export default function StatusBadge({ status, size = 'normal', showIcon = true }
           }`}
         >
           {showIcon && <ShieldCheck className={isSmall ? 'w-3.5 h-3.5' : 'w-4 h-4'} />}
-          <span>HEALTHY (GREEN)</span>
+          <span>ACTIVE</span>
         </span>
       );
 
@@ -37,7 +37,7 @@ export default function StatusBadge({ status, size = 'normal', showIcon = true }
           }`}
         >
           {showIcon && <AlertOctagon className={isSmall ? 'w-3.5 h-3.5 text-rose-400' : 'w-4 h-4 text-rose-400'} />}
-          <span>SUSPENDED (HOLD)</span>
+          <span>SUSPENDED</span>
         </span>
       );
 

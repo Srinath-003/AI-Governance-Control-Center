@@ -20,7 +20,7 @@ function ProtectedLayout() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#070B12] flex items-center justify-center text-slate-400 font-mono text-sm">
+      <div className="min-h-screen bg-[#030304] flex items-center justify-center text-neutral-400 font-mono text-sm">
         Initializing AI Governance Platform...
       </div>
     );
@@ -32,11 +32,11 @@ function ProtectedLayout() {
 
   return (
     <SimulationProvider>
-      <div className="min-h-screen bg-[#070B12] text-slate-100 flex flex-col">
+      <div className="min-h-screen bg-[#030304] text-white flex flex-col">
         <Navbar />
-        <div className="flex flex-1 pt-16">
+        <div className="flex flex-1 pt-[72px]">
           <Sidebar />
-          <main className="flex-1 ml-64 p-8 overflow-y-auto min-h-[calc(100vh-4rem)]">
+          <main className="flex-1 ml-64 p-8 overflow-y-auto min-h-[calc(100vh-72px)]">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/agents" element={<Agents />} />

@@ -35,68 +35,40 @@ export default function Dashboard() {
   return (
     <div className="space-y-8">
       {/* AIVAR Hero Banner Header */}
-      <div className="glass-panel p-8 bg-[#0C0C0E] border border-[#222226] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden bg-purple-grid">
-        <div className="space-y-4 max-w-3xl relative z-10">
+      <div className="glass-panel p-6 sm:p-8 bg-[#0C0C0E] border border-[#222226] relative overflow-hidden bg-purple-grid">
+        <div className="space-y-2 relative z-10">
           <div className="tag-purple">
-            &lt; SERVICES THAT SCALE LIKE SOFTWARE &gt;
+            AI GOVERNANCE PIPELINE
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-none">
-            Enterprise AI That Finally Earns Its Place In Production
+          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            AI Governance Dashboard
           </h1>
-          <p className="text-sm text-neutral-300 font-medium leading-relaxed max-w-2xl">
-            Deployed Faster. Governed Tighter. Proven outcomes. Automatically converting AI production monitoring signals into deterministic governance actions and auditable state machine transitions.
+          <p className="text-xs text-[#9999A1] font-medium max-w-xl">
+            Real-time telemetry, agent state machine transitions, and automated policy enforcement.
           </p>
-
-          {/* Notched Action Buttons */}
-          <div className="pt-2 flex flex-wrap items-center gap-3">
-            {isSimulating ? (
-              <button
-                onClick={stopSimulation}
-                className="px-6 py-3 bg-rose-600 hover:bg-rose-500 text-white font-bold font-mono text-xs uppercase tracking-wider transition border border-rose-400/30 flex items-center gap-2"
-              >
-                <Square className="w-4 h-4 fill-current" />
-                Stop Simulation
-              </button>
-            ) : (
-              <button
-                onClick={startSimulation}
-                className="px-6 py-3 btn-notch-white text-xs flex items-center gap-2"
-              >
-                <Play className="w-4 h-4 fill-current" />
-                Start Monitoring Simulation
-              </button>
-            )}
-
-            <Link
-              to="/review-queue"
-              className="px-6 py-3 btn-notch-outline text-xs flex items-center gap-2"
-            >
-              See Review Queue
-            </Link>
-          </div>
         </div>
       </div>
 
-      {/* Metric Cards Row - AIVAR High-Contrast Theme */}
+      {/* Metric Cards Row - High Contrast Theme */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Total Agents */}
         <div className="glass-card p-5 bg-[#0C0C0E] border border-[#222226] flex items-center justify-between">
           <div>
-            <div className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest">&lt; PORTFOLIO &gt;</div>
+            <div className="text-xs font-mono text-neutral-400 uppercase tracking-widest">PORTFOLIO</div>
             <div className="text-3xl font-black text-white mt-1 font-mono">{summary.total}</div>
-            <div className="text-[11px] text-neutral-400 mt-0.5">Total Governed</div>
+            <div className="text-xs text-neutral-400 mt-0.5">Total Governed</div>
           </div>
           <div className="p-3 bg-purple-950/40 border border-purple-500/30 text-purple-400">
             <Bot className="w-6 h-6" />
           </div>
         </div>
 
-        {/* Healthy Green */}
+        {/* Active Green */}
         <div className="glass-card p-5 bg-[#0C0C0E] border border-emerald-900/50 flex items-center justify-between">
           <div>
-            <div className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">&lt; HEALTHY &gt;</div>
+            <div className="text-xs font-mono text-emerald-400 uppercase tracking-widest">ACTIVE</div>
             <div className="text-3xl font-black text-emerald-400 mt-1 font-mono">{summary.green}</div>
-            <div className="text-[11px] text-emerald-500/80 mt-0.5">Active Production</div>
+            <div className="text-xs text-emerald-500/80 mt-0.5">Active Production</div>
           </div>
           <div className="p-3 bg-emerald-950/40 border border-emerald-500/30 text-emerald-400">
             <ShieldCheck className="w-6 h-6" />
@@ -106,9 +78,9 @@ export default function Dashboard() {
         {/* Under Review */}
         <div className="glass-card p-5 bg-[#0C0C0E] border border-amber-900/50 flex items-center justify-between">
           <div>
-            <div className="text-[10px] font-mono text-amber-400 uppercase tracking-widest">&lt; REVIEW &gt;</div>
+            <div className="text-xs font-mono text-amber-400 uppercase tracking-widest">REVIEW</div>
             <div className="text-3xl font-black text-amber-300 mt-1 font-mono">{summary.underReview}</div>
-            <div className="text-[11px] text-amber-500/80 mt-0.5">Compliance Queue</div>
+            <div className="text-xs text-amber-500/80 mt-0.5">Compliance Queue</div>
           </div>
           <div className="p-3 bg-amber-950/40 border border-amber-500/30 text-amber-400">
             <AlertTriangle className="w-6 h-6" />
@@ -118,9 +90,9 @@ export default function Dashboard() {
         {/* Suspended */}
         <div className="glass-card p-5 bg-[#0C0C0E] border border-rose-900/60 flex items-center justify-between">
           <div>
-            <div className="text-[10px] font-mono text-rose-400 uppercase tracking-widest">&lt; HOLD &gt;</div>
+            <div className="text-xs font-mono text-rose-400 uppercase tracking-widest">SUSPENDED</div>
             <div className="text-3xl font-black text-rose-300 mt-1 font-mono">{summary.suspended}</div>
-            <div className="text-[11px] text-rose-400/80 mt-0.5">Suspended Access</div>
+            <div className="text-xs text-rose-400/80 mt-0.5">Suspended Access</div>
           </div>
           <div className="p-3 bg-rose-950/50 border border-rose-500/40 text-rose-400 glow-red">
             <AlertOctagon className="w-6 h-6" />
@@ -130,9 +102,9 @@ export default function Dashboard() {
         {/* Remediated */}
         <div className="glass-card p-5 bg-[#0C0C0E] border border-cyan-900/50 flex items-center justify-between col-span-2 lg:col-span-1">
           <div>
-            <div className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest">&lt; REMEDIATED &gt;</div>
+            <div className="text-xs font-mono text-cyan-400 uppercase tracking-widest">REMEDIATED</div>
             <div className="text-3xl font-black text-cyan-300 mt-1 font-mono">{summary.remediated}</div>
-            <div className="text-[11px] text-cyan-500/80 mt-0.5">Ready for Green</div>
+            <div className="text-xs text-cyan-500/80 mt-0.5">Ready for Green</div>
           </div>
           <div className="p-3 bg-cyan-950/40 border border-cyan-500/30 text-cyan-400">
             <RefreshCw className="w-6 h-6" />
@@ -167,9 +139,9 @@ export default function Dashboard() {
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-purple-400">{incident.agentId}</span>
+                      <span className="font-mono text-sm font-black text-purple-300 bg-purple-950 px-2.5 py-0.5 border border-purple-500/40 whitespace-nowrap inline-block">{incident.agentId}</span>
                       <span
-                        className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded ${
+                        className={`text-xs font-mono font-bold px-2 py-0.5 rounded ${
                           incident.severity === 'CRITICAL'
                             ? 'bg-rose-950 text-rose-300 border border-rose-500/40'
                             : 'bg-amber-950 text-amber-300 border border-amber-500/40'
@@ -181,7 +153,7 @@ export default function Dashboard() {
                     <div className="text-sm font-bold text-white">{incident.title}</div>
                     <p className="text-xs text-neutral-400 line-clamp-2">{incident.description}</p>
                   </div>
-                  <div className="text-[10px] font-mono text-neutral-500 shrink-0 flex items-center gap-1">
+                  <div className="text-xs font-mono text-neutral-500 shrink-0 flex items-center gap-1">
                     <Clock className="w-3 h-3" />
                     {new Date(incident.createdAt).toLocaleTimeString()}
                   </div>
@@ -216,23 +188,23 @@ export default function Dashboard() {
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono font-bold text-purple-400">{action.agentId}</span>
+                      <span className="font-mono text-sm font-black text-purple-300 bg-purple-950 px-2.5 py-0.5 border border-purple-500/40 whitespace-nowrap inline-block">{action.agentId}</span>
                       <span className="text-neutral-500">•</span>
-                      <span className="text-white font-semibold">{action.action}</span>
+                      <span className="text-white font-bold">{action.action}</span>
                     </div>
-                    <span className="font-mono text-[10px] text-neutral-500">
+                    <span className="font-mono text-xs text-neutral-500">
                       {new Date(action.timestamp).toLocaleTimeString()}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-2 text-[11px]">
+                  <div className="flex items-center gap-2 text-xs">
                     <span className="text-neutral-400 font-mono">Transition:</span>
                     <StatusBadge status={action.previousStatus} size="small" showIcon={false} />
                     <span className="text-neutral-500">→</span>
                     <StatusBadge status={action.newStatus} size="small" showIcon={false} />
                   </div>
 
-                  <div className="text-neutral-400 text-[11px] truncate">
+                  <div className="text-neutral-400 text-xs truncate">
                     Reason: <span className="text-neutral-300">{action.reason}</span>
                   </div>
                 </div>

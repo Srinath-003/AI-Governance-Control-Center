@@ -108,29 +108,29 @@ export default function AuditTrail() {
       {/* Audit Log Table */}
       <div className="glass-panel rounded-2xl border border-slate-800 overflow-hidden shadow-2xl">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs border-collapse">
+          <table className="w-full text-left text-sm border-collapse">
             <thead>
-              <tr className="bg-slate-900/90 border-b border-slate-800 text-slate-400 font-mono text-[11px]">
-                <th className="py-3 px-4">Timestamp</th>
-                <th className="py-3 px-4">Agent</th>
-                <th className="py-3 px-4">Signal Type</th>
-                <th className="py-3 px-4">Governance Action</th>
-                <th className="py-3 px-4 text-center">Status Transition</th>
-                <th className="py-3 px-4">Actor</th>
-                <th className="py-3 px-4">Rationale</th>
-                <th className="py-3 px-4 text-right">Inspect</th>
+              <tr className="bg-[#121215] border-b border-[#222226] text-purple-300 font-mono text-xs sm:text-sm uppercase tracking-wider">
+                <th className="py-4 px-4">Timestamp</th>
+                <th className="py-4 px-4">Agent</th>
+                <th className="py-4 px-4">Signal Type</th>
+                <th className="py-4 px-4">Governance Action</th>
+                <th className="py-4 px-4 text-center">Status Transition</th>
+                <th className="py-4 px-4">Actor</th>
+                <th className="py-4 px-4">Rationale</th>
+                <th className="py-4 px-4 text-right">Inspect</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60">
+            <tbody className="divide-y divide-[#222226]">
               {loading ? (
                 <tr>
-                  <td colSpan="8" className="py-12 text-center text-slate-500 font-mono">
+                  <td colSpan="8" className="py-12 text-center text-neutral-400 font-mono text-sm">
                     Loading audit trail entries...
                   </td>
                 </tr>
               ) : logs.length === 0 ? (
                 <tr>
-                  <td colSpan="8" className="py-12 text-center text-slate-500 font-mono">
+                  <td colSpan="8" className="py-12 text-center text-neutral-400 font-mono text-sm">
                     No matching audit trail records found.
                   </td>
                 </tr>
@@ -138,45 +138,45 @@ export default function AuditTrail() {
                 logs.map((log) => (
                   <tr
                     key={log._id || log.eventId}
-                    className="hover:bg-slate-800/40 transition group cursor-pointer"
+                    className="hover:bg-[#121215]/80 transition group cursor-pointer"
                     onClick={() => setSelectedAudit(log)}
                   >
-                    <td className="py-3 px-4 font-mono text-[11px] text-slate-400 whitespace-nowrap">
+                    <td className="py-3.5 px-4 font-mono text-xs sm:text-sm text-neutral-300 whitespace-nowrap">
                       {new Date(log.timestamp).toLocaleString()}
                     </td>
-                    <td className="py-3 px-4">
-                      <span className="font-mono font-bold text-indigo-300 bg-indigo-950/60 px-2 py-0.5 rounded border border-indigo-500/30">
+                    <td className="py-3.5 px-4 whitespace-nowrap">
+                      <span className="font-mono text-xs sm:text-sm font-black text-purple-300 bg-purple-950 px-2.5 py-1 rounded border border-purple-500/40 whitespace-nowrap inline-block">
                         {log.agentId}
                       </span>
                     </td>
-                    <td className="py-3 px-4">
-                      <span className="font-mono text-cyan-300">{log.signalType}</span>
+                    <td className="py-3.5 px-4">
+                      <span className="font-mono text-xs sm:text-sm font-bold text-cyan-300">{log.signalType}</span>
                     </td>
-                    <td className="py-3 px-4 font-semibold text-slate-200">
+                    <td className="py-3.5 px-4 font-bold text-white text-sm">
                       {log.action}
                     </td>
-                    <td className="py-3 px-4 text-center whitespace-nowrap">
+                    <td className="py-3.5 px-4 text-center whitespace-nowrap">
                       <div className="inline-flex items-center gap-1.5">
-                        <StatusBadge status={log.previousStatus} size="small" showIcon={false} />
-                        <span className="text-slate-500">→</span>
-                        <StatusBadge status={log.newStatus} size="small" showIcon={false} />
+                        <StatusBadge status={log.previousStatus} size="normal" showIcon={false} />
+                        <span className="text-neutral-500">→</span>
+                        <StatusBadge status={log.newStatus} size="normal" showIcon={false} />
                       </div>
                     </td>
-                    <td className="py-3 px-4 text-slate-400 font-mono text-[11px]">
+                    <td className="py-3.5 px-4 text-neutral-300 font-mono text-xs sm:text-sm">
                       {log.reviewer}
                     </td>
-                    <td className="py-3 px-4 text-slate-300 max-w-xs truncate">
+                    <td className="py-3.5 px-4 text-neutral-200 text-xs sm:text-sm max-w-xs truncate">
                       {log.reason}
                     </td>
-                    <td className="py-3 px-4 text-right">
+                    <td className="py-3.5 px-4 text-right">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
                           setSelectedAudit(log);
                         }}
-                        className="p-1.5 rounded bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white transition"
+                        className="p-2 rounded bg-[#121215] hover:bg-purple-600 text-neutral-300 hover:text-white transition border border-[#222226]"
                       >
-                        <Eye className="w-3.5 h-3.5" />
+                        <Eye className="w-4 h-4" />
                       </button>
                     </td>
                   </tr>

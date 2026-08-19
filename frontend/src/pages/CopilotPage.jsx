@@ -66,42 +66,42 @@ export default function CopilotPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black text-white tracking-tight flex items-center gap-2">
-            <MessageSquare className="w-7 h-7 text-purple-400" />
+          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight flex items-center gap-2">
+            <MessageSquare className="w-8 h-8 text-purple-400" />
             AI Governance Chatbot
           </h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-sm text-neutral-400 mt-1">
             Ask any question about agent status, incident root causes, telemetry signals, audit records, or compliance policies.
           </p>
         </div>
 
-        <div className="flex items-center gap-2 bg-purple-950/60 border border-purple-500/30 px-3 py-1.5 rounded-xl font-mono text-xs text-purple-300 shrink-0">
+        <div className="flex items-center gap-2 bg-purple-950/80 border border-purple-500/40 px-4 py-2 rounded-xl font-mono text-xs sm:text-sm font-bold text-purple-300 shrink-0">
           <Shield className="w-4 h-4 text-purple-400" />
           <span>Universal Governance Assistant</span>
         </div>
       </div>
 
       {/* Chat History Container */}
-      <div className="glass-panel rounded-2xl border border-slate-800 p-5 space-y-4 min-h-[420px] flex flex-col justify-between">
+      <div className="glass-panel rounded-2xl border border-[#222226] p-6 space-y-4 min-h-[450px] flex flex-col justify-between bg-[#0C0C0E]">
         {messages.length === 0 ? (
           <div className="my-auto py-10 text-center space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-purple-900/30 border border-purple-500/30 mx-auto flex items-center justify-center text-purple-400">
-              <MessageSquare className="w-6 h-6" />
+            <div className="w-14 h-14 rounded-2xl bg-purple-900/30 border border-purple-500/30 mx-auto flex items-center justify-center text-purple-400">
+              <MessageSquare className="w-7 h-7" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-slate-200">How can I assist your compliance team today?</h3>
-              <p className="text-xs text-slate-400 max-w-md mx-auto mt-1">
+              <h3 className="text-base font-bold text-white">How can I assist your compliance team today?</h3>
+              <p className="text-sm text-neutral-400 max-w-md mx-auto mt-1">
                 Ask any question about your governed AI models, production signals, state machine transitions, or audit records.
               </p>
             </div>
 
             {/* Quick Sample Questions Chips */}
-            <div className="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto pt-2">
+            <div className="flex flex-wrap justify-center gap-2.5 max-w-2xl mx-auto pt-3">
               {sampleQuestions.map((q, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleQuery(q)}
-                  className="px-3 py-1.5 bg-slate-900 hover:bg-purple-950/50 text-slate-300 hover:text-purple-200 text-xs font-medium rounded-xl border border-slate-800 hover:border-purple-500/40 transition"
+                  className="px-4 py-2.5 bg-[#121215] hover:bg-purple-950/60 text-neutral-200 hover:text-white text-xs sm:text-sm font-medium rounded-xl border border-[#222226] hover:border-purple-500/40 transition shadow-sm"
                 >
                   {q}
                 </button>
@@ -109,7 +109,7 @@ export default function CopilotPage() {
             </div>
           </div>
         ) : (
-          <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2">
+          <div className="space-y-4 max-h-[520px] overflow-y-auto pr-2">
             {messages.map((msg, idx) => (
               <div
                 key={idx}
@@ -118,18 +118,18 @@ export default function CopilotPage() {
                 }`}
               >
                 <div
-                  className={`max-w-3xl p-4 rounded-2xl text-xs leading-relaxed ${
+                  className={`max-w-3xl p-4 rounded-2xl text-sm sm:text-base leading-relaxed ${
                     msg.role === 'user'
-                      ? 'bg-indigo-600 text-white rounded-br-none shadow-lg shadow-indigo-950/40 font-medium'
-                      : 'bg-slate-900/90 border border-purple-500/30 text-slate-200 rounded-bl-none shadow-xl'
+                      ? 'bg-purple-600 text-white rounded-br-none shadow-lg shadow-purple-950/40 font-medium'
+                      : 'bg-[#121215] border border-purple-500/30 text-neutral-100 rounded-bl-none shadow-xl'
                   }`}
                 >
                   {msg.role === 'assistant' && (
                     <div className="flex items-center justify-between border-b border-purple-500/20 pb-2 mb-2">
-                      <span className="font-bold text-purple-300 flex items-center gap-1.5">
-                        <MessageSquare className="w-3.5 h-3.5" /> Governance Chatbot
+                      <span className="font-bold text-purple-300 flex items-center gap-1.5 text-xs sm:text-sm">
+                        <MessageSquare className="w-4 h-4" /> Governance Chatbot
                       </span>
-                      <span className="font-mono text-[10px] text-purple-400 bg-purple-950 px-2 py-0.5 rounded border border-purple-500/30">
+                      <span className="font-mono text-xs text-purple-300 bg-purple-950 px-2.5 py-0.5 rounded border border-purple-500/40">
                         {msg.source}
                       </span>
                     </div>
@@ -143,7 +143,7 @@ export default function CopilotPage() {
 
             {loading && (
               <div className="flex items-start">
-                <div className="bg-slate-900 p-3.5 rounded-2xl border border-purple-500/30 text-xs text-purple-300 flex items-center gap-2 animate-pulse">
+                <div className="bg-[#121215] p-4 rounded-2xl border border-purple-500/30 text-sm text-purple-300 flex items-center gap-2 animate-pulse">
                   <RefreshCw className="w-4 h-4 animate-spin" />
                   <span>Evaluating system state and generating response...</span>
                 </div>
@@ -153,27 +153,27 @@ export default function CopilotPage() {
         )}
 
         {/* Input Bar */}
-        <div className="pt-3 border-t border-slate-800">
-          <div className="flex items-center gap-2">
+        <div className="pt-3 border-t border-[#222226]">
+          <div className="flex items-center gap-2.5">
             <input
               type="text"
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleQuery()}
               placeholder="Ask anything about AI governance, incidents, agent status, or policies..."
-              className="flex-1 bg-slate-950 border border-slate-800 focus:border-purple-500 rounded-xl px-4 py-3 text-xs text-slate-100 placeholder-slate-500 outline-none transition"
+              className="flex-1 bg-[#050505] border border-[#222226] focus:border-purple-500 rounded-xl px-4 py-3.5 text-sm sm:text-base text-white placeholder-neutral-500 outline-none transition"
             />
             <button
               onClick={() => handleQuery()}
               disabled={loading || !prompt.trim()}
-              className="px-5 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-purple-950/50 flex items-center gap-2 transition disabled:opacity-50 shrink-0"
+              className="px-6 py-3.5 btn-notch-purple text-sm rounded-xl flex items-center gap-2 transition disabled:opacity-50 shrink-0 font-bold"
             >
               {loading ? (
                 <RefreshCw className="w-4 h-4 animate-spin" />
               ) : (
                 <>
                   <span>Send</span>
-                  <Send className="w-3.5 h-3.5" />
+                  <Send className="w-4 h-4" />
                 </>
               )}
             </button>

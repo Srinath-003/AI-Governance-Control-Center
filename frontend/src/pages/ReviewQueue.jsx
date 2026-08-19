@@ -156,43 +156,43 @@ export default function ReviewQueue() {
               {/* Header Info */}
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div className="flex items-start gap-3">
-                  <span className="font-mono text-xs font-bold text-indigo-400 bg-indigo-950 px-2.5 py-1 rounded border border-indigo-500/30">
+                  <span className="font-mono text-sm font-black text-purple-300 bg-purple-950 px-3 py-1 rounded border border-purple-500/40 shrink-0">
                     {agent.agentId}
                   </span>
                   <div>
                     <div className="flex items-center gap-3">
-                      <h3 className="text-lg font-bold text-white">{agent.name}</h3>
-                      <StatusBadge status={agent.status} size="small" />
+                      <h3 className="text-xl sm:text-2xl font-black text-white">{agent.name}</h3>
+                      <StatusBadge status={agent.status} size="normal" />
                     </div>
-                    <p className="text-xs text-slate-400 mt-0.5">{agent.description}</p>
+                    <p className="text-sm text-neutral-400 mt-1">{agent.description}</p>
                   </div>
                 </div>
 
                 {/* SLA Status Indicator */}
                 <div className="flex items-center gap-3">
                   {agent.slaBreached ? (
-                    <span className="px-3 py-1 bg-amber-500 text-slate-950 rounded-full font-black text-xs tracking-wider uppercase glow-amber flex items-center gap-1.5">
-                      <AlertTriangle className="w-3.5 h-3.5" /> SLA BREACHED (50h+)
+                    <span className="px-3.5 py-1.5 bg-amber-500 text-slate-950 rounded-full font-black text-xs sm:text-sm tracking-wider uppercase glow-amber flex items-center gap-1.5">
+                      <AlertTriangle className="w-4 h-4" /> SLA BREACHED (50h+)
                     </span>
                   ) : (
-                    <span className="px-3 py-1 bg-slate-900 text-slate-400 border border-slate-800 rounded-full text-xs font-mono flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-emerald-400" /> SLA OK (&lt; 48h)
+                    <span className="px-3.5 py-1.5 bg-[#121215] text-neutral-300 border border-[#222226] rounded-full text-xs sm:text-sm font-mono flex items-center gap-1.5">
+                      <Clock className="w-4 h-4 text-emerald-400" /> SLA OK (&lt; 48h)
                     </span>
                   )}
                 </div>
               </div>
 
               {/* Incident Details & Last Signal */}
-              <div className="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800/80 text-xs grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="bg-[#050505] p-4 rounded-xl border border-[#222226] text-sm grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
-                  <span className="text-slate-500 text-[10px] uppercase font-mono block">Hold / Incident Reason</span>
-                  <span className="text-slate-200 font-medium">
+                  <span className="text-neutral-400 text-xs uppercase font-mono font-bold block mb-0.5">Hold / Incident Reason</span>
+                  <span className="text-white font-medium">
                     {agent.holdReason || agent.lastSignalType || 'Under compliance reassessment.'}
                   </span>
                 </div>
                 <div>
-                  <span className="text-slate-500 text-[10px] uppercase font-mono block">Review Started</span>
-                  <span className="text-slate-300 font-mono">
+                  <span className="text-neutral-400 text-xs uppercase font-mono font-bold block mb-0.5">Review Started</span>
+                  <span className="text-neutral-300 font-mono">
                     {agent.reviewStartedAt
                       ? new Date(agent.reviewStartedAt).toLocaleString()
                       : 'Pending review start'}
@@ -201,20 +201,20 @@ export default function ReviewQueue() {
               </div>
 
               {/* State Machine Transition Actions */}
-              <div className="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-slate-800/80">
-                <div className="flex items-center gap-2">
+              <div className="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-[#222226]">
+                <div className="flex items-center gap-3">
                   <Link
                     to={`/agents/${agent.agentId}`}
-                    className="text-xs text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1"
+                    className="text-sm text-purple-400 hover:text-purple-300 font-bold flex items-center gap-1"
                   >
-                    View Agent Details <ArrowRight className="w-3.5 h-3.5" />
+                    View Agent Details <ArrowRight className="w-4 h-4" />
                   </Link>
-                  <span className="text-slate-600">•</span>
+                  <span className="text-neutral-600">•</span>
                   <Link
                     to={`/chatbot?q=What caused ${agent.agentId} to be placed in review queue?&agent=${agent.agentId}`}
-                    className="text-xs text-purple-400 hover:text-purple-300 font-semibold flex items-center gap-1"
+                    className="text-sm text-purple-300 hover:text-white font-bold flex items-center gap-1"
                   >
-                    <MessageSquare className="w-3.5 h-3.5" /> Ask Chatbot
+                    <MessageSquare className="w-4 h-4" /> Ask Chatbot
                   </Link>
                 </div>
 

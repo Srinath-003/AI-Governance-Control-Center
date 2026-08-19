@@ -8,7 +8,7 @@ export default function Navbar() {
   const { isSimulating, startSimulation, stopSimulation } = useSimulation();
 
   return (
-    <header className="h-18 bg-[#050505]/95 backdrop-blur-xl border-b border-[#222226] fixed top-0 left-0 right-0 z-40 px-6 py-3 flex items-center justify-between">
+    <header className="h-[72px] bg-[#050505]/95 backdrop-blur-xl border-b border-[#222226] fixed top-0 left-0 right-0 z-40 px-6 py-3 flex items-center justify-between">
       {/* Brand Header */}
       <div className="flex items-center gap-3.5">
         <div className="flex items-center justify-center text-purple-400">
@@ -19,12 +19,12 @@ export default function Navbar() {
             AI-GCC
           </span>
           <span className="tag-purple bg-purple-950/70 border border-purple-500/50 px-2.5 py-1 rounded text-xs">
-            &lt; CONTROL CENTER &gt;
+            CONTROL CENTER
           </span>
         </div>
       </div>
 
-      {/* Center Controls: Simulation Engine */}
+      {/* Right Controls: Simulation Engine & User Info */}
       <div className="flex items-center gap-4">
         <div className={`flex items-center gap-2.5 px-3.5 py-2 border text-sm font-mono font-bold transition-all ${
           isSimulating 
@@ -46,21 +46,18 @@ export default function Navbar() {
         ) : (
           <button
             onClick={startSimulation}
-            className="px-5 py-2 btn-notch-purple text-sm flex items-center gap-2"
+            className="px-5 py-2 btn-notch-purple text-sm flex items-center gap-2 font-bold"
           >
             <Play className="w-4 h-4 fill-current" />
             Start Simulation
           </button>
         )}
-      </div>
 
-      {/* User Info & Notched Action Button */}
-      <div className="flex items-center gap-4">
         {user && (
           <div className="flex items-center gap-4 pl-4 border-l border-[#222226]">
             <div className="text-right hidden sm:block">
               <div className="text-sm font-bold text-white font-mono uppercase tracking-wide">{user.name}</div>
-              <div className="text-xs text-purple-400 font-mono font-semibold">&lt; {user.role} &gt;</div>
+              <div className="text-xs text-purple-400 font-mono font-semibold">{user.role}</div>
             </div>
             <button
               onClick={logout}
