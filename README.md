@@ -7,7 +7,6 @@
 [![Express.js](https://img.shields.io/badge/Express.js-4.x-000000?logo=express&logoColor=white)](https://expressjs.com/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![Google Gemini AI](https://img.shields.io/badge/Google_Gemini-API-4285F4?logo=google&logoColor=white)](https://aistudio.google.com/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > **Enterprise AI Observability-to-Governance Pipeline**: Connecting production AI monitoring signals directly to automated governance workflows, deterministic state machine enforcement, API Gateway locks (`HTTP 403 GOVERNANCE_HOLD`), and auditable compliance logs.
 
